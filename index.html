@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Laser | Evolución en Corte y Grabado Láser</title>
+    <meta name="description" content="Corte y grabado láser premium. Identidad digital inteligente, tarjetas NFC, cartelería moderna y precisión absoluta para profesionales y marcas en Tucumán.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+    <div id="cursor" class="custom-cursor"></div>
+    <div id="cursor-follower" class="custom-cursor-follower"></div>
+
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-glass">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./assets/logo.png" alt="T-Laser Logo" class="nav-logo-img">
+                <span>T<span class="text-gradient">-</span>LASER</span>
+            </div>
+            <div class="nav-links">
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#clientes" class="nav-link">Clientes</a>
+                <a href="#contacto" class="btn-primary-sm">Cotizar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="inicio">
+        <div class="hero-video-wrapper">
+            <video autoplay loop muted playsinline class="hero-video">
+                <source src="./assets/hero-video.mp4" type="video/mp4">
+            </video>
+            <div class="hero-video-overlay"></div>
+        </div>
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-content">
+            <div class="badge-premium" data-speed="1.05">
+                <span class="pulse-dot"></span> Next Gen Studio
+            </div>
+            <h1 class="hero-title">
+                <div class="line-wrap"><span class="line-1">Corte & Grabado</span></div>
+                <div class="line-wrap"><span class="line-2 text-gradient">Personalizado.</span></div>
+            </h1>
+            <p class="hero-subtitle">
+                Elegancia, tecnología y precisión para profesionales. Llevamos tus ideas a la realidad con calidad de nivel mundial en Tucumán.
+            </p>
+            <div class="hero-cta-group">
+                <a href="https://wa.me/5493813159106?text=%F0%9F%9A%80%20Hola%20T-Laser!%20%F0%9F%9A%80%0AMi%20nombre%20es%3A%20________%0AEstoy%20interesado%20en%20el%20producto%3A%20________%0A%F0%9F%93%85%20Fecha%20estimada%20que%20lo%20necesito%3A%20________%0A%F0%9F%93%A6%20Material%20que%20me%20gustar%C3%ADa%20usar%3A%20________%0A%F0%9F%93%A3%20%C2%A1Quedo%20atento%20a%20tu%20respuesta!" target="_blank" class="btn-primary">
+                    Comenzar Proyecto <i data-lucide="arrow-right"></i>
+                </a>
+                <a href="#servicios" class="btn-secondary">
+                    Explorar Servicios
+                </a>
+            </div>
+        </div>
+        
+        <div class="hero-visuals">
+            <div class="float-card glass-card card-1" data-speed="1.2">
+                <i data-lucide="nfc" class="icon-gradient"></i>
+                <span>NFC Smart</span>
+            </div>
+            <div class="float-card glass-card card-2" data-speed="0.8">
+                <i data-lucide="scan" class="icon-gradient"></i>
+                <span>Precisión Láser</span>
+            </div>
+            <div class="float-card glass-card card-3" data-speed="1.4">
+                <i data-lucide="layers" class="icon-gradient"></i>
+                <span>Materiales Premium</span>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+            <span>Scroll</span>
+        </div>
+    </header>
+
+    <!-- Clients Marquee -->
+    <section class="clients-section" id="clientes">
+        <div class="clients-fade-left"></div>
+        <div class="clients-fade-right"></div>
+        <div class="marquee-container">
+            <div class="marquee">
+                <span>CLUB CAPELLI</span> <span class="dot">•</span>
+                <span>SR. COKOC</span> <span class="dot">•</span>
+                <span>BRUNO IGARZA</span> <span class="dot">•</span>
+                <span>DIVINA MANÍA</span> <span class="dot">•</span>
+                <span>DR. LEANDRO UNZAGA</span> <span class="dot">•</span>
+                <span>LAB. METTOLA</span> <span class="dot">•</span>
+                <span>GLOBAL SPORTS</span> <span class="dot">•</span>
+                <span>HOSTERÍA ATAHUALPA</span> <span class="dot">•</span>
+                <span>CORTE INGLÉS</span> <span class="dot">•</span>
+                <!-- Duplicate for seamless scroll -->
+                <span>CLUB CAPELLI</span> <span class="dot">•</span>
+                <span>SR. COKOC</span> <span class="dot">•</span>
+                <span>BRUNO IGARZA</span> <span class="dot">•</span>
+                <span>DIVINA MANÍA</span> <span class="dot">•</span>
+                <span>DR. LEANDRO UNZAGA</span> <span class="dot">•</span>
+                <span>LAB. METTOLA</span> <span class="dot">•</span>
+                <span>GLOBAL SPORTS</span> <span class="dot">•</span>
+                <span>HOSTERÍA ATAHUALPA</span> <span class="dot">•</span>
+                <span>CORTE INGLÉS</span> <span class="dot">•</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Bento Grid -->
+    <section class="services" id="servicios">
+        <div class="section-header">
+            <h2 class="section-title">Ecosistema <span class="text-gradient">Tecnológico</span></h2>
+            <p class="section-desc">Diseñamos soluciones funcionales que conectan lo físico con lo digital mediante NFC, QR y acabados inmaculados.</p>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Card 1: NFC -->
+            <div class="bento-item glass-card bento-large group bento-with-image-col">
+                <div class="bento-glow-hover"></div>
+                <div class="bento-content">
+                    <div class="icon-box">
+                        <i data-lucide="smartphone-nfc"></i>
+                    </div>
+                    <h3>Identidad Digital Inteligente</h3>
+                    <p>Tarjetas y Llaveros Inteligentes para Profesionales. Elegancia y practicidad que incorporan tecnología NFC y código QR. Acceso directo a una landing exclusiva.</p>
+                    <ul class="feature-list">
+                        <li><i data-lucide="check"></i> Abogados, contadores, médicos</li>
+                        <li><i data-lucide="check"></i> MDF, acrílico, cuero, metal</li>
+                        <li><i data-lucide="check"></i> Compatible iOS y Android</li>
+                    </ul>
+                </div>
+                <div class="bento-image-wrapper bento-image-large">
+                    <img src="./assets/tarjetaNFCvcard.png" alt="Tarjeta NFC Inteligente" class="bento-image">
+                </div>
+            </div>
+
+            <!-- Card 2: Cartelería -->
+            <div class="bento-item glass-card group bento-with-image-col">
+                <div class="bento-glow-hover"></div>
+                <div class="bento-content">
+                    <div class="icon-box">
+                        <i data-lucide="qr-code"></i>
+                    </div>
+                    <h3>Cartelería Funcional</h3>
+                    <p>Diseño inteligente que conecta al instante. Carteles con QR y NFC para acceso a Wi-Fi, menú digital o redes sociales.</p>
+                </div>
+                <div class="bento-image-wrapper">
+                    <img src="./assets/cartelqrylandinpagepersonalizada.png" alt="Cartelería QR" class="bento-image">
+                </div>
+            </div>
+
+            <!-- Card 3: Corte -->
+            <div class="bento-item glass-card group bento-with-image-col">
+                <div class="bento-glow-hover"></div>
+                <div class="bento-content">
+                    <div class="icon-box">
+                        <i data-lucide="scissors"></i>
+                    </div>
+                    <h3>Corte Láser</h3>
+                    <p>Realizamos cortes limpios y precisos adaptados a proyectos decorativos, industriales y personalizados.</p>
+                </div>
+                <div class="bento-image-wrapper">
+                    <img src="./assets/llaverosnfc.png" alt="Llaveros Cortados y Grabados" class="bento-image">
+                </div>
+            </div>
+
+            <!-- Card 4: Grabado -->
+            <div class="bento-item glass-card bento-wide group bento-with-image">
+                <div class="bento-glow-hover"></div>
+                <div class="bento-content">
+                    <div class="icon-box">
+                        <i data-lucide="pen-tool"></i>
+                    </div>
+                    <h3>Grabado Láser de Alta Definición</h3>
+                    <p>Precisión, personalización y calidad en cada detalle sobre MDF, acrílico, cuero, vidrio, metal, corcho y más. Resultados nítidos y duraderos.</p>
+                </div>
+                <div class="bento-image-wrapper">
+                    <img src="./assets/mateytermograbado.png" alt="Mate y Termo Grabado Láser" class="bento-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment & Contact Section -->
+    <section class="payment-section" id="contacto">
+        <div class="payment-glow"></div>
+        <div class="payment-container glass-card">
+            <div class="payment-left">
+                <h2>¿Listo para <span class="text-gradient">materializar</span> tu idea?</h2>
+                <p>Contactanos por redes o transferí directamente para asegurar tu pedido.</p>
+                
+                <div class="social-links">
+                    <a href="https://wa.me/5493813159106?text=%F0%9F%9A%80%20Hola%20T-Laser!%20%F0%9F%9A%80%0AMi%20nombre%20es%3A%20________%0AEstoy%20interesado%20en%20el%20producto%3A%20________%0A%F0%9F%93%85%20Fecha%20estimada%20que%20lo%20necesito%3A%20________%0A%F0%9F%93%A6%20Material%20que%20me%20gustar%C3%ADa%20usar%3A%20________%0A%F0%9F%93%A3%20%C2%A1Quedo%20atento%20a%20tu%20respuesta!" target="_blank" class="social-btn whatsapp">
+                        <i data-lucide="message-circle"></i> WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/tlasertucuman/" target="_blank" class="social-btn instagram">
+                        <i data-lucide="instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61575611156116" target="_blank" class="social-btn facebook">
+                        <i data-lucide="facebook"></i> Facebook
+                    </a>
+                </div>
+            </div>
+            
+            <div class="payment-right">
+                <div class="terminal-card">
+                    <div class="terminal-header">
+                        <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                        <div class="terminal-title">Datos Bancarios</div>
+                    </div>
+                    <div class="terminal-body">
+                        <p class="terminal-instruction">Transferí de forma segura copiando el alias a tu app bancaria o billetera virtual.</p>
+                        
+                        <div class="data-group">
+                            <span class="data-label">Titular</span>
+                            <span class="data-value">Esteban Alejandro Lopez</span>
+                        </div>
+                        <div class="data-group">
+                            <span class="data-label">CUIT</span>
+                            <span class="data-value">20-31323182-9</span>
+                        </div>
+                        <div class="data-group alias-group">
+                            <div class="alias-info">
+                                <span class="data-label">Alias</span>
+                                <span class="data-value highlight" id="alias-text">TLASER.TUCUMAN</span>
+                            </div>
+                            <button class="copy-btn" id="copy-alias">
+                                <i data-lucide="copy"></i> Copiar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <img src="./assets/logo.png" alt="T-Laser Logo" class="footer-logo-img">
+                <span>T<span class="text-gradient">-</span>LASER</span>
+            </div>
+            <p>Corte y grabado láser profesional en Tucumán</p>
+            <p class="copyright">© 2025 T-Laser. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i data-lucide="check-circle-2"></i> ¡Alias copiado con éxito!
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="./js/app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
