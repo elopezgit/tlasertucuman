@@ -1,4 +1,4 @@
-﻿:root {
+:root {
     --bg: #f7f8fb;
     --bg-surface: #ffffff;
     --bg-soft: #edf2f7;
@@ -1367,20 +1367,34 @@ footer {
         width: 100%;
     }
     .hero {
-        padding: calc(var(--nav-height) + 2rem) 1rem 3rem;
+        padding: calc(var(--nav-height) + 1.5rem) 1rem 2.5rem;
+        min-height: auto;
     }
     .hero-content {
         gap: 1.5rem;
     }
     .hero-title {
-        font-size: clamp(2.4rem, 13vw, 3.4rem);
+        font-size: clamp(2.2rem, 11vw, 3rem);
+        line-height: 1.05;
     }
-    .hero-description,
-    .hero-stat span {
+    .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
         text-align: left;
     }
+    .hero-stat {
+        padding: 0.8rem 1rem;
+    }
+    .hero-stat strong {
+        font-size: 1.2rem;
+    }
+    .hero-stat span {
+        text-align: left;
+        font-size: 0.85rem;
+    }
     .hero-stats {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
     }
     .hero-badges {
         grid-template-columns: 1fr;
@@ -1389,11 +1403,147 @@ footer {
     .btn-secondary {
         width: 100%;
         justify-content: center;
+        padding: 0.9rem 1.5rem;
     }
     .social-btn {
         width: 100%;
+        padding: 1rem;
     }
     .payment-container {
         gap: 1.5rem;
     }
+    .section-title {
+        font-size: clamp(2rem, 9vw, 2.6rem);
+    }
+    .bento-item {
+        padding: 1.5rem;
+        min-height: auto;
+    }
+    .bento-image-wrapper {
+        min-height: 200px;
+    }
+    .products-section, .services {
+        padding: 3rem 0;
+    }
+    .contact-section {
+        padding: 3.5rem 0 2rem;
+    }
+    .product-card {
+        padding: 1.5rem;
+    }
+    .floating-whatsapp {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 55px;
+        height: 55px;
+    }
+    .floating-whatsapp i {
+        width: 28px;
+        height: 28px;
+    }
+    footer {
+        padding: 3rem 1.5rem 2rem;
+    }
+}
+
+/* Loader */
+.laser-loader {
+    position: fixed;
+    inset: 0;
+    background: #0f172a;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.laser-beam-container {
+    width: 200px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.laser-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #7c3aed, #06b6d4, #ec4899);
+    box-shadow: 0 0 15px #06b6d4, 0 0 30px #7c3aed;
+    border-radius: 4px;
+}
+
+.loader-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.loader-text .text-line {
+    opacity: 0;
+}
+
+.loader-text .highlight {
+    background: linear-gradient(135deg, #7c3aed 0%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-top: 0.5rem;
+}
+
+/* Floating WhatsApp */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 65px;
+    height: 65px;
+    background: #25D366;
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: floatWA 4s ease-in-out infinite;
+}
+
+.floating-whatsapp i {
+    width: 34px;
+    height: 34px;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+    animation-play-state: paused;
+}
+
+@keyframes floatWA {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }

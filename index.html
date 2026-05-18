@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T-Laser | Evolución en Corte y Grabado Láser</title>
-    <meta name="description" content="Corte y grabado láser premium. Identidad digital inteligente, tarjetas NFC, cartelería moderna y precisión absoluta para profesionales y marcas en Tucumán.">
+    <meta name="description"
+        content="Corte y grabado láser premium. Identidad digital inteligente, tarjetas NFC, cartelería moderna y precisión absoluta para profesionales y marcas en Tucumán.">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
+
 <body class="dark-theme">
     <div id="cursor" class="custom-cursor"></div>
     <div id="cursor-follower" class="custom-cursor-follower"></div>
 
     <div class="noise-overlay"></div>
+
+    <!-- Loader Screen -->
+    <div id="loader" class="laser-loader">
+        <div class="loader-content">
+            <div class="laser-beam-container">
+                <div class="laser-beam"></div>
+                <div class="laser-sparkles"></div>
+            </div>
+            <div class="loader-text">
+                <span class="text-line">Precisión láser para ideas, sin limites</span>
+                <span class="text-line highlight"> T - LASER </span>
+            </div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="nav-glass">
@@ -35,7 +54,8 @@
                 <a href="#clientes" class="nav-link">Nosotros</a>
                 <a href="#contacto" class="nav-link">Contacto</a>
             </div>
-            <a href="https://wa.me/5493813159106?text=Hola%20T-Laser!%20Estoy%20interesado%20en%20un%20proyecto" target="_blank" class="btn-primary">
+            <a href="https://wa.me/5493813159106?text=Hola%20T-Laser!%20Estoy%20interesado%20en%20un%20proyecto"
+                target="_blank" class="btn-primary">
                 PEDÍ TU DISEÑO <i data-lucide="arrow-right"></i>
             </a>
         </div>
@@ -43,12 +63,7 @@
 
     <!-- Hero Section -->
     <header class="hero" id="inicio">
-        <div class="hero-video-wrapper">
-            <video autoplay loop muted playsinline class="hero-video">
-                <source src="./assets/hero-video.mp4" type="video/mp4">
-            </video>
-            <div class="hero-video-overlay"></div>
-        </div>
+
 
         <div class="hero-grid container">
             <div class="hero-copy">
@@ -59,11 +74,13 @@
                     <span>QUE MARCAN LA DIFERENCIA.</span>
                 </h1>
                 <p class="hero-description">
-                    Transformamos ideas en objetos con diseño láser, tecnología NFC y acabados de estudio global. Distinción, velocidad y un estilo único para marcas audaces.
+                    Transformamos ideas en objetos con diseño láser, tecnología NFC y acabados de estudio global.
+                    Distinción, velocidad y un estilo único para marcas audaces.
                 </p>
                 <div class="hero-cta-group">
                     <a href="#servicios" class="btn-primary">VER CATÁLOGO <i data-lucide="arrow-right"></i></a>
-                    <a href="https://wa.me/5493813159106?text=Hola%20T-Laser!%20Estoy%20interesado%20en%20un%20proyecto" target="_blank" class="btn-secondary">ESCRIBINOS <i data-lucide="message-circle"></i></a>
+                    <a href="https://wa.me/5493813159106?text=Hola%20T-Laser!%20Estoy%20interesado%20en%20un%20proyecto"
+                        target="_blank" class="btn-secondary">ESCRIBINOS <i data-lucide="message-circle"></i></a>
                 </div>
                 <div class="hero-stats">
                     <div class="hero-stat">
@@ -110,7 +127,8 @@
             <div class="section-header">
                 <span class="eyebrow">PRODUCTOS</span>
                 <h2 class="section-title">TODO LO QUE PODEMOS <span class="text-gradient">CREAR</span></h2>
-                <p class="section-desc">Materiales premium, etiquetas NFC, acrílicos cortados a medida y piezas con terminación de estudio creativo.</p>
+                <p class="section-desc">Materiales premium, etiquetas NFC, acrílicos cortados a medida y piezas con
+                    terminación de estudio creativo.</p>
             </div>
             <div class="product-grid">
                 <article class="product-card">
@@ -151,8 +169,10 @@
     <section class="services" id="servicios">
         <div class="section-header">
             <span class="eyebrow">SOBRE T-LASER</span>
-            <h2 class="section-title">COMBINAMOS <span class="text-gradient">TECNOLOGÍA</span>, CREATIVIDAD Y PRECISIÓN.</h2>
-            <p class="section-desc">Transformamos ideas en productos físicos con estética premium, corte láser impecable y electrónica integrada.</p>
+            <h2 class="section-title">COMBINAMOS <span class="text-gradient">TECNOLOGÍA</span>, CREATIVIDAD Y PRECISIÓN.
+            </h2>
+            <p class="section-desc">Transformamos ideas en productos físicos con estética premium, corte láser impecable
+                y electrónica integrada.</p>
         </div>
 
         <div class="bento-grid">
@@ -164,7 +184,8 @@
                         <i data-lucide="smartphone-nfc"></i>
                     </div>
                     <h3>Identidad Digital Inteligente</h3>
-                    <p>Tarjetas y Llaveros Inteligentes para Profesionales. Elegancia y practicidad que incorporan tecnología NFC y código QR. Acceso directo a una landing exclusiva.</p>
+                    <p>Tarjetas y Llaveros Inteligentes para Profesionales. Elegancia y practicidad que incorporan
+                        tecnología NFC y código QR. Acceso directo a una landing exclusiva.</p>
                     <ul class="feature-list">
                         <li><i data-lucide="check"></i> Abogados, contadores, médicos</li>
                         <li><i data-lucide="check"></i> MDF, acrílico, cuero, metal</li>
@@ -184,7 +205,8 @@
                         <i data-lucide="qr-code"></i>
                     </div>
                     <h3>Cartelería Funcional</h3>
-                    <p>Diseño inteligente que conecta al instante. Carteles con QR y NFC para acceso a Wi-Fi, menú digital o redes sociales.</p>
+                    <p>Diseño inteligente que conecta al instante. Carteles con QR y NFC para acceso a Wi-Fi, menú
+                        digital o redes sociales.</p>
                 </div>
                 <div class="bento-image-wrapper">
                     <img src="./assets/cartelqrylandinpagepersonalizada.png" alt="Cartelería QR" class="bento-image">
@@ -199,7 +221,8 @@
                         <i data-lucide="scissors"></i>
                     </div>
                     <h3>Corte Láser</h3>
-                    <p>Realizamos cortes limpios y precisos adaptados a proyectos decorativos, industriales y personalizados.</p>
+                    <p>Realizamos cortes limpios y precisos adaptados a proyectos decorativos, industriales y
+                        personalizados.</p>
                 </div>
                 <div class="bento-image-wrapper">
                     <img src="./assets/llaverosnfc.png" alt="Llaveros Cortados y Grabados" class="bento-image">
@@ -214,7 +237,8 @@
                         <i data-lucide="pen-tool"></i>
                     </div>
                     <h3>Grabado Láser de Alta Definición</h3>
-                    <p>Precisión, personalización y calidad en cada detalle sobre MDF, acrílico, cuero, vidrio, metal, corcho y más. Resultados nítidos y duraderos.</p>
+                    <p>Precisión, personalización y calidad en cada detalle sobre MDF, acrílico, cuero, vidrio, metal,
+                        corcho y más. Resultados nítidos y duraderos.</p>
                 </div>
                 <div class="bento-image-wrapper">
                     <img src="./assets/mateytermograbado.png" alt="Mate y Termo Grabado Láser" class="bento-image">
@@ -229,9 +253,11 @@
             <div class="contact-panel">
                 <span class="eyebrow">¿TENÉS UNA IDEA EN MENTE?</span>
                 <h2>Contanos tu proyecto y <span class="text-gradient">lo hacemos realidad</span></h2>
-                <p>Tu pieza premium, señalética o producto digital se diseña con tecnología de punta y acabados que parecen de estudio internacional.</p>
+                <p>Tu pieza premium, señalética o producto digital se diseña con tecnología de punta y acabados que
+                    parecen de estudio internacional.</p>
                 <div class="contact-actions">
-                    <a href="https://wa.me/5493813159106?text=Hola%20T-Laser!%20Estoy%20interesado%20en%20un%20proyecto" target="_blank" class="btn-primary">PEDÍ TU DISEÑO AHORA</a>
+                    <a href="https://wa.me/5493813159106?text=Hola%20T-Laser!%20Estoy%20interesado%20en%20un%20proyecto"
+                        target="_blank" class="btn-primary">PEDÍ TU DISEÑO AHORA</a>
                     <a href="mailto:hola@tlaser.com.ar" class="btn-secondary">hola@tlaser.com.ar</a>
                 </div>
             </div>
@@ -264,15 +290,18 @@
             <div class="payment-container glass-card">
                 <div class="payment-left">
                     <h2>Transferencias seguras y pagos rápidos</h2>
-                    <p>Copiá el alias y aboná de forma directa. También podés escribirnos por WhatsApp para confirmar el pedido.</p>
+                    <p>Copiá el alias y aboná de forma directa. También podés escribirnos por WhatsApp para confirmar el
+                        pedido.</p>
                     <div class="social-links">
-                        <a href="https://wa.me/5493813159106?text=Hola%20T-Laser!%20Estoy%20interesado%20en%20un%20proyecto" target="_blank" class="social-btn whatsapp">
+                        <a href="https://wa.me/5493813159106?text=Hola%20T-Laser!%20Estoy%20interesado%20en%20un%20proyecto"
+                            target="_blank" class="social-btn whatsapp">
                             <i data-lucide="message-circle"></i> WhatsApp
                         </a>
                         <a href="https://www.instagram.com/tlasertucuman/" target="_blank" class="social-btn instagram">
                             <i data-lucide="instagram"></i> Instagram
                         </a>
-                        <a href="https://www.facebook.com/profile.php?id=61575611156116" target="_blank" class="social-btn facebook">
+                        <a href="https://www.facebook.com/profile.php?id=61575611156116" target="_blank"
+                            class="social-btn facebook">
                             <i data-lucide="facebook"></i> Facebook
                         </a>
                     </div>
@@ -280,11 +309,13 @@
                 <div class="payment-right">
                     <div class="terminal-card">
                         <div class="terminal-header">
-                            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+                            <div class="dots"><span class="red"></span><span class="yellow"></span><span
+                                    class="green"></span></div>
                             <div class="terminal-title">Datos Bancarios</div>
                         </div>
                         <div class="terminal-body">
-                            <p class="terminal-instruction">Transferí de forma segura copiando el alias a tu app bancaria o billetera virtual.</p>
+                            <p class="terminal-instruction">Transferí de forma segura copiando el alias a tu app
+                                bancaria o billetera virtual.</p>
                             <div class="data-group">
                                 <span class="data-label">Titular</span>
                                 <span class="data-value">Esteban Alejandro Lopez</span>
@@ -350,6 +381,12 @@
         <i data-lucide="check-circle-2"></i> ¡Alias copiado con éxito!
     </div>
 
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/5493813159106?text=Hola%20T-Laser!%20Estoy%20interesado%20en%20un%20proyecto" target="_blank"
+        class="floating-whatsapp" aria-label="Contactar por WhatsApp">
+        <i data-lucide="message-circle"></i>
+    </a>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -360,4 +397,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>

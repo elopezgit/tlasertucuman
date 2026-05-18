@@ -1,6 +1,35 @@
 // app.js
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Loader Animation
+    const loader = document.getElementById('loader');
+    if (loader) {
+        document.body.style.overflow = 'hidden';
+        window.scrollTo(0, 0);
+        
+        const tlLoader = gsap.timeline({
+            onComplete: () => {
+                loader.style.display = 'none';
+                document.body.style.overflow = '';
+                // Trigger hero animations after loader
+                ScrollTrigger.refresh();
+                playHeroAnimations();
+            }
+        });
+
+        tlLoader.to('.laser-beam', { width: '100%', duration: 1.5, ease: 'power2.inOut', delay: 0.2 })
+                .to('.laser-beam-container', { opacity: 0, duration: 0.3 })
+                .fromTo('.loader-text .text-line', 
+                    { opacity: 0, y: 15 }, 
+                    { opacity: 1, y: 0, duration: 0.8, stagger: 0.4, ease: 'power2.out' }, 
+                    "-=0.1"
+                )
+                .to('.loader-text .text-line', { opacity: 0, duration: 0.5, delay: 1.2 })
+                .to(loader, { opacity: 0, duration: 0.8, ease: 'power2.inOut' });
+    } else {
+        playHeroAnimations();
+    }
+
     // 1. Initialize Lenis (Smooth Scroll)
     const lenis = new Lenis({
         lerp: 0.18,
@@ -68,48 +97,50 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // Hero Text Animation
-    const heroTitleLines = document.querySelectorAll('.hero-title span');
-    
-    gsap.from(heroTitleLines, {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power4.out",
-        delay: 0.2
-    });
+    function playHeroAnimations() {
+        const heroTitleLines = document.querySelectorAll('.hero-title span');
+        
+        gsap.from(heroTitleLines, {
+            y: 100,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: "power4.out",
+            delay: 0.2
+        });
 
-    gsap.from('.hero-subtitle', {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.8
-    });
+        gsap.from('.hero-subtitle', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+            delay: 0.8
+        });
 
-    gsap.from('.hero-cta-group', {
-        y: 30,
-        opacity: 0,
-        duration: 1,
-        ease: "power3.out",
-        delay: 1
-    });
+        gsap.from('.hero-cta-group', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out",
+            delay: 1
+        });
 
-    gsap.from('.badge-premium', {
-        scale: 0.8,
-        opacity: 0,
-        duration: 1,
-        ease: "elastic.out(1, 0.5)"
-    });
+        gsap.from('.badge-premium', {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1,
+            ease: "elastic.out(1, 0.5)"
+        });
 
-    gsap.to('.hero-badge', {
-        y: -10,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        duration: 4,
-        stagger: 0.18
-    });
+        gsap.to('.hero-badge', {
+            y: -10,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+            duration: 4,
+            stagger: 0.18
+        });
+    }
 
     gsap.fromTo('.hero-display-card',
         { y: 30, opacity: 0.75 },
