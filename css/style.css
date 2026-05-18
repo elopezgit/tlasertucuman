@@ -1382,6 +1382,9 @@ footer {
         line-height: 1.6;
         text-align: left;
     }
+    .hero-display-card {
+        min-height: 250px;
+    }
     .hero-stat {
         padding: 0.8rem 1rem;
     }
@@ -1415,21 +1418,113 @@ footer {
     .section-title {
         font-size: clamp(2rem, 9vw, 2.6rem);
     }
+    
+    /* Novel Mobile Card Styles */
+    .product-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 
+            "icon title"
+            "icon desc";
+        align-items: center;
+        gap: 0.5rem 1.25rem;
+        padding: 1.25rem;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 20px;
+    }
+    .product-card i {
+        grid-area: icon;
+        width: 46px;
+        height: 46px;
+        background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.1));
+        padding: 10px;
+        border-radius: 14px;
+        color: var(--accent-violet);
+    }
+    .product-card h3 {
+        grid-area: title;
+        font-size: 1.15rem;
+        align-self: end;
+        margin: 0;
+    }
+    .product-card p {
+        grid-area: desc;
+        font-size: 0.88rem;
+        align-self: start;
+        margin: 0;
+    }
+
+    /* Process cards */
+    .process-card {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas: 
+            "step title"
+            "step desc";
+        gap: 0.3rem 1.1rem;
+        padding: 1.25rem;
+    }
+    .process-step {
+        grid-area: step;
+        align-self: center;
+        width: 46px;
+        height: 46px;
+        font-size: 1.2rem;
+    }
+    .process-card h3 {
+        grid-area: title;
+        font-size: 1.05rem;
+        align-self: end;
+        margin: 0;
+    }
+    .process-card p {
+        grid-area: desc;
+        font-size: 0.88rem;
+        align-self: start;
+        margin: 0;
+    }
+
+    /* Bento Grid Mobile */
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    .bento-large,
+    .bento-wide {
+        grid-column: auto;
+    }
     .bento-item {
         padding: 1.5rem;
         min-height: auto;
     }
-    .bento-image-wrapper {
-        min-height: 200px;
+    .bento-content {
+        gap: 1rem;
     }
+    .bento-item h3 {
+        font-size: 1.5rem;
+    }
+    .bento-item p {
+        font-size: 0.95rem;
+    }
+    .icon-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+    }
+    .icon-box i {
+        width: 24px;
+        height: 24px;
+    }
+    .bento-image-wrapper {
+        min-height: 220px;
+        border-radius: 18px;
+    }
+
     .products-section, .services {
         padding: 3rem 0;
     }
     .contact-section {
         padding: 3.5rem 0 2rem;
-    }
-    .product-card {
-        padding: 1.5rem;
     }
     .floating-whatsapp {
         bottom: 1.5rem;
