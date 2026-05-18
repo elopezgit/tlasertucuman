@@ -3,10 +3,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Lenis (Smooth Scroll)
     const lenis = new Lenis({
-        lerp: 0.1,
-        wheelMultiplier: 1.2,
+        lerp: 0.18,
+        wheelMultiplier: 1.4,
         smoothWheel: true,
-        smoothTouch: false,
+        smoothTouch: true,
         touchMultiplier: 2
     });
 
@@ -16,13 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     requestAnimationFrame(raf);
 
-    // Update ScrollTrigger on lenis scroll
+    // Update ScrollTrigger on lenis scroll and refresh
     lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-    });
-    gsap.ticker.lagSmoothing(0);
+    ScrollTrigger.addEventListener('refresh', () => lenis.update());
 
     // 2. Custom Cursor
     const cursor = document.getElementById('cursor');
@@ -36,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Add hover effect to links and buttons
-        const interactables = document.querySelectorAll('a, button, .bento-item');
+        const interactables = document.querySelectorAll('a, button, .bento-item, .product-card');
         interactables.forEach(el => {
             el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
             el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
@@ -106,21 +102,30 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "elastic.out(1, 0.5)"
     });
 
-    // Floating Cards Parallax
-    const floatCards = document.querySelectorAll('.float-card');
-    floatCards.forEach(card => {
-        const speed = card.getAttribute('data-speed');
-        gsap.to(card, {
-            y: (i, el) => (1 - parseFloat(speed)) * (ScrollTrigger.maxScroll(window) - (ScrollTrigger.maxScroll(window) * 0.5)),
-            ease: "none",
+    gsap.to('.hero-badge', {
+        y: -10,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        duration: 4,
+        stagger: 0.18
+    });
+
+    gsap.fromTo('.hero-display-card',
+        { y: 30, opacity: 0.75 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 1.4,
+            ease: "power3.out",
             scrollTrigger: {
                 trigger: ".hero",
                 start: "top top",
                 end: "bottom top",
                 scrub: true
             }
-        });
-    });
+        }
+    );
 
     // Bento Grid Stagger Animation
     gsap.fromTo('.bento-item', 
@@ -135,6 +140,22 @@ document.addEventListener('DOMContentLoaded', () => {
             opacity: 1,
             duration: 0.8,
             stagger: 0.15,
+            ease: "power3.out"
+        }
+    );
+
+    gsap.fromTo('.product-card',
+        { y: 40, opacity: 0 },
+        {
+            scrollTrigger: {
+                trigger: '.products-section',
+                start: "top 90%",
+                once: true
+            },
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.12,
             ease: "power3.out"
         }
     );
