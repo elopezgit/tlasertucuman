@@ -118,6 +118,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
+        // --- FAQ Accordion ---
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const btn = item.querySelector('.faq-question');
+            btn.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // Toggle current
+                item.classList.toggle('active');
+                
+                // Update ScrollTrigger after a short delay since height changed
+                setTimeout(() => ScrollTrigger.refresh(), 350);
+            });
+        });
+
         ScrollTrigger.refresh();
     }
 });
