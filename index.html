@@ -1,106 +1,99 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-Laser | Laboratorio Creativo</title>
+    <title>T-Laser | Corte y Grabado Láser Premium</title>
     <meta name="description"
-        content="Corte y grabado láser premium. Identidad digital inteligente, tarjetas NFC, cartelería moderna y precisión absoluta para profesionales y marcas en Tucumán.">
-    <!-- Fonts -->
+        content="Servicios de corte y grabado láser, acrílico, MDF, y tarjetas NFC. Calidad premium y precisión absoluta en Tucumán.">
+    <!-- Fonts: Outfit for elegant headings, Inter for readable body text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 
 <body>
-    <!-- Advanced Custom Cursor -->
-    <div id="cursor" class="custom-cursor"></div>
-    <div id="cursor-follower" class="custom-cursor-follower"></div>
-
-    <!-- Login / Welcome Sequence -->
-    <div id="boot-sequence" class="boot-overlay">
-        <div class="boot-content">
-            <div class="boot-logo">
-                <svg viewBox="0 0 100 100" width="80" height="80">
-                    <path class="laser-path" d="M10 90 L50 10 L90 90 Z" fill="none" stroke="currentColor" stroke-width="2"/>
-                    <line class="laser-line" x1="50" y1="10" x2="50" y2="90" stroke="currentColor" stroke-width="2"/>
-                </svg>
+    <!-- Friendly Welcome Splash Screen -->
+    <div id="splash-screen" class="splash-overlay">
+        <div class="splash-content">
+            <div class="splash-logo-box">
+                <span class="splash-icon">T</span>
+                <span class="splash-text">LASER</span>
             </div>
-            <div class="boot-text-container">
-                <div class="boot-status">SISTEMA EN INICIO</div>
-                <div class="boot-progress">
-                    <div class="boot-progress-bar"></div>
-                </div>
-                <div class="boot-log">
-                    <span>> CALIBRANDO LÁSER...</span>
-                    <span>> SINCRONIZANDO NFC...</span>
-                    <span>> INICIALIZANDO INTERFAZ...</span>
-                    <span class="boot-ready">> SISTEMA LISTO</span>
-                </div>
-            </div>
-            <button id="enter-btn" class="enter-btn">INICIAR SESIÓN</button>
+            <h2 class="splash-welcome">¡Bienvenido!</h2>
+            <div class="splash-loader"></div>
         </div>
     </div>
 
-    <!-- Main Content Wrapper (hidden initially) -->
+    <!-- Main Content -->
     <div id="main-app" class="app-container hidden">
-        <!-- Background Effects -->
-        <div class="ambient-glow glow-1"></div>
-        <div class="ambient-glow glow-2"></div>
-        <div class="noise-overlay"></div>
-
+        
         <!-- Navigation -->
-        <nav class="glass-nav">
-            <div class="nav-container">
-                <a href="#inicio" class="brand">
-                    <div class="brand-icon">T</div>
-                    <div class="brand-text">
-                        <span class="brand-name">T-LASER</span>
-                        <span class="brand-tag">Lab</span>
+        <nav class="main-nav">
+            <div class="container nav-container">
+                <a href="#inicio" class="brand-logo">
+                    <div class="logo-mark">T</div>
+                    <div class="logo-type">
+                        <strong>T-LASER</strong>
+                        <span>Corte & Grabado</span>
                     </div>
                 </a>
                 <div class="nav-links">
-                    <a href="#inicio" class="nav-link" data-text="INICIO">INICIO</a>
-                    <a href="#catalogo" class="nav-link" data-text="CATÁLOGO">CATÁLOGO</a>
-                    <a href="#contacto" class="nav-link" data-text="CONTACTO">CONTACTO</a>
+                    <a href="#servicios" class="nav-link">Qué Hacemos</a>
+                    <a href="#materiales" class="nav-link">Materiales</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
                 </div>
-                <a href="https://wa.me/5493816992434?text=Hola%20T-Laser!%20Quiero%20iniciar%20un%20proyecto"
-                    target="_blank" class="btn-magnetic outline-btn">
-                    <span class="btn-text">INICIAR PROYECTO</span>
+                <a href="https://wa.me/5493816992434?text=Hola%20T-Laser!%20Me%20gustaría%20saber%20más%20sobre%20sus%20servicios" 
+                   target="_blank" class="btn-whatsapp-nav">
+                    <i data-lucide="message-circle"></i> Escribinos
                 </a>
             </div>
         </nav>
 
         <!-- Hero Section -->
         <header class="hero-section" id="inicio">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+            </div>
+            
             <div class="container hero-grid">
-                <div class="hero-content">
-                    <div class="eyebrow-tag">
-                        <span class="pulse-dot"></span> OPERANDO EN TUCUMÁN
-                    </div>
+                <div class="hero-text-content">
+
                     <h1 class="hero-title">
-                        <span class="line"><span class="word">PRECISIÓN</span></span>
-                        <span class="line"><span class="word gradient-text">ABSOLUTA</span></span>
-                        <span class="line"><span class="word">EN CADA CORTE.</span></span>
+                        Transformamos tus ideas en piezas <span class="text-highlight">únicas</span>
                     </h1>
-                    <p class="hero-sub">
-                        Fusionamos tecnología láser, integración NFC y diseño industrial para crear piezas premium que elevan tu marca a la próxima dimensión.
+                    <p class="hero-subtitle">
+                        Especialistas en <strong>corte y grabado láser</strong>. Diseñamos cartelería, tarjetas NFC inteligentes y productos personalizados con acabados perfectos. 
                     </p>
-                    <div class="hero-actions">
-                        <a href="#catalogo" class="btn-solid btn-magnetic">EXPLORAR <i data-lucide="arrow-down-right"></i></a>
-                        <a href="https://wa.me/5493816992434?text=Hola%20T-Laser!%20Quiero%20iniciar%20un%20proyecto"
-                            target="_blank" class="btn-outline btn-magnetic">CONTACTAR <i data-lucide="message-square"></i></a>
+                    <div class="hero-buttons">
+                        <a href="https://wa.me/5493816992434?text=Hola!%20Quiero%20presupuestar%20un%20proyecto" 
+                           target="_blank" class="btn-primary btn-large">
+                            <i data-lucide="message-circle"></i> Cotizar por WhatsApp
+                        </a>
+                        <a href="#servicios" class="btn-secondary btn-large">
+                            Ver catálogo
+                        </a>
+                    </div>
+                    
+                    <div class="trust-indicators">
+                        <div class="trust-item"><i data-lucide="check-circle"></i> Precisión milimétrica</div>
+                        <div class="trust-item"><i data-lucide="check-circle"></i> Grabamos tu material o lo conseguimos</div>
+                        <div class="trust-item"><i data-lucide="check-circle"></i> Atención personalizada</div>
                     </div>
                 </div>
-                <div class="hero-visual">
-                    <div class="tech-card">
-                        <div class="tech-card-inner">
-                            <div class="tech-card-front">
-                                <img src="./assets/tarjetaNFCvcard.png" alt="NFC Tech" class="hero-img">
-                                <div class="scanning-line"></div>
+                
+                <div class="hero-image-content">
+                    <div class="image-showcase">
+                        <img src="./assets/tarjetaNFCvcard.png" alt="Tarjetas NFC Premium de T-Laser" class="main-img">
+                        <div class="floating-card highlight-card">
+                            <i data-lucide="smartphone-nfc"></i>
+                            <div>
+                                <strong>Tecnología NFC</strong>
+                                <span>Tarjetas inteligentes</span>
                             </div>
                         </div>
                     </div>
@@ -108,102 +101,204 @@
             </div>
         </header>
 
-        <!-- Features / Marquee -->
-        <div class="tech-ticker">
-            <div class="ticker-track">
-                <span>CORTE LÁSER</span><span class="dot">•</span>
-                <span>GRABADO CNC</span><span class="dot">•</span>
-                <span>TECNOLOGÍA NFC</span><span class="dot">•</span>
-                <span>IDENTIDAD DIGITAL</span><span class="dot">•</span>
-                <span>ACRÍLICO</span><span class="dot">•</span>
-                <span>MDF</span><span class="dot">•</span>
-                <span>METAL</span><span class="dot">•</span>
-                <span>CORTE LÁSER</span><span class="dot">•</span>
-                <span>GRABADO CNC</span><span class="dot">•</span>
-                <span>TECNOLOGÍA NFC</span><span class="dot">•</span>
-            </div>
-        </div>
+        <!-- Infinite Photo Banner -->
+        <section class="photo-marquee-section">
+            <h2 class="sr-only">Nuestros Trabajos</h2>
+            <div class="photo-marquee-container">
+                <div class="photo-marquee-track">
+                    <!-- Set 1: 32 Imágenes (Generadas + Cliente) -->
+                    <!-- Imágenes Originales -->
+                    <img src="./assets/laser_mate.png" alt="Mate grabado láser">
+                    <img src="./assets/laser_tabla.png" alt="Tabla asado láser">
+                    <img src="./assets/laser_mdf.png" alt="Decoración MDF láser">
+                    <img src="./assets/laser_machine.png" alt="Máquina de corte láser">
+                    <img src="./assets/tarjetaNFCvcard.png" alt="Tarjeta inteligente NFC">
+                    <img src="./assets/mateytermograbado.png" alt="Mate y termo personalizados">
+                    <img src="./assets/llaverosnfc.png" alt="Llavero láser">
+                    <img src="./assets/cartelqrylandinpagepersonalizada.png" alt="Cartel QR comercial">
+                    <img src="./assets/laser_wood_rings.png" alt="Anillos de madera grabados">
+                    <img src="./assets/laser_cnc_machine.png" alt="Máquina CNC trabajando">
+                    <img src="./assets/laser_wood_sign.png" alt="Cartel de madera corporativo">
+                    <img src="./assets/laser_leather.png" alt="Grabado láser en cuero">
+                    <img src="./assets/laser_acrylic.png" alt="Cartel acrílico iluminado LED">
+                    <img src="./assets/laser_box.png" alt="Caja de madera calada">
+                    <img src="./assets/laser_cork.png" alt="Posavasos de corcho grabados">
+                    <img src="./assets/laser_bamboo.png" alt="Tabla de bambú personalizada">
+                    
+                    <!-- Imágenes de la carpeta Banner -->
+                    <img src="./assets/banner/1.jfif" alt="Trabajo láser 1">
+                    <img src="./assets/banner/2.jfif" alt="Trabajo láser 2">
+                    <img src="./assets/banner/3.jfif" alt="Trabajo láser 3">
+                    <img src="./assets/banner/5.webp" alt="Trabajo láser 5">
+                    <img src="./assets/banner/6.jfif" alt="Trabajo láser 6">
+                    <img src="./assets/banner/7.jfif" alt="Trabajo láser 7">
+                    <img src="./assets/banner/8.jfif" alt="Trabajo láser 8">
+                    <img src="./assets/banner/10.webp" alt="Trabajo láser 10">
+                    <img src="./assets/banner/11.jfif" alt="Trabajo láser 11">
+                    <img src="./assets/banner/12.jfif" alt="Trabajo láser 12">
+                    <img src="./assets/banner/14.jfif" alt="Trabajo láser 14">
+                    <img src="./assets/banner/15.webp" alt="Trabajo láser 15">
+                    <img src="./assets/banner/17.jfif" alt="Trabajo láser 17">
+                    <img src="./assets/banner/18.jfif" alt="Trabajo láser 18">
+                    <img src="./assets/banner/20.jpg" alt="Trabajo láser 20">
+                    <img src="./assets/banner/cuaderno.jfif" alt="Cuaderno grabado láser">
 
-        <!-- Catalog Bento Box -->
-        <section class="section" id="catalogo">
-            <div class="container">
-                <div class="section-head">
-                    <h2 class="section-title">NUESTRO <br><span class="gradient-text">ARSENAL</span></h2>
-                    <p class="section-desc">Materiales nobles moldeados con luz coherente y tecnología de punta.</p>
+                    <!-- Set 2: Duplicado para scroll infinito fluido -->
+                    <!-- Imágenes Originales -->
+                    <img src="./assets/laser_mate.png" alt="Mate grabado láser">
+                    <img src="./assets/laser_tabla.png" alt="Tabla asado láser">
+                    <img src="./assets/laser_mdf.png" alt="Decoración MDF láser">
+                    <img src="./assets/laser_machine.png" alt="Máquina de corte láser">
+                    <img src="./assets/tarjetaNFCvcard.png" alt="Tarjeta inteligente NFC">
+                    <img src="./assets/mateytermograbado.png" alt="Mate y termo personalizados">
+                    <img src="./assets/llaverosnfc.png" alt="Llavero láser">
+                    <img src="./assets/cartelqrylandinpagepersonalizada.png" alt="Cartel QR comercial">
+                    <img src="./assets/laser_wood_rings.png" alt="Anillos de madera grabados">
+                    <img src="./assets/laser_cnc_machine.png" alt="Máquina CNC trabajando">
+                    <img src="./assets/laser_wood_sign.png" alt="Cartel de madera corporativo">
+                    <img src="./assets/laser_leather.png" alt="Grabado láser en cuero">
+                    <img src="./assets/laser_acrylic.png" alt="Cartel acrílico iluminado LED">
+                    <img src="./assets/laser_box.png" alt="Caja de madera calada">
+                    <img src="./assets/laser_cork.png" alt="Posavasos de corcho grabados">
+                    <img src="./assets/laser_bamboo.png" alt="Tabla de bambú personalizada">
+                    
+                    <!-- Imágenes de la carpeta Banner -->
+                    <img src="./assets/banner/1.jfif" alt="Trabajo láser 1">
+                    <img src="./assets/banner/2.jfif" alt="Trabajo láser 2">
+                    <img src="./assets/banner/3.jfif" alt="Trabajo láser 3">
+                    <img src="./assets/banner/5.webp" alt="Trabajo láser 5">
+                    <img src="./assets/banner/6.jfif" alt="Trabajo láser 6">
+                    <img src="./assets/banner/7.jfif" alt="Trabajo láser 7">
+                    <img src="./assets/banner/8.jfif" alt="Trabajo láser 8">
+                    <img src="./assets/banner/10.webp" alt="Trabajo láser 10">
+                    <img src="./assets/banner/11.jfif" alt="Trabajo láser 11">
+                    <img src="./assets/banner/12.jfif" alt="Trabajo láser 12">
+                    <img src="./assets/banner/14.jfif" alt="Trabajo láser 14">
+                    <img src="./assets/banner/15.webp" alt="Trabajo láser 15">
+                    <img src="./assets/banner/17.jfif" alt="Trabajo láser 17">
+                    <img src="./assets/banner/18.jfif" alt="Trabajo láser 18">
+                    <img src="./assets/banner/20.jpg" alt="Trabajo láser 20">
+                    <img src="./assets/banner/cuaderno.jfif" alt="Cuaderno grabado láser">
                 </div>
+            </div>
+        </section>
 
-                <div class="bento-grid">
-                    <div class="bento-item span-2 glass-panel reveal-up">
-                        <div class="bento-content">
-                            <i data-lucide="smartphone-nfc" class="bento-icon"></i>
-                            <h3>Tarjetas NFC Premium</h3>
-                            <p>Networking de próxima generación. Acerca la tarjeta al smartphone y transfiere tu identidad digital al instante.</p>
-                        </div>
-                        <img src="./assets/tarjetaNFCvcard.png" alt="NFC" class="bento-bg-img">
+        <!-- Services Section -->
+        <section class="section bg-light" id="servicios">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Lo que podemos hacer por vos</h2>
+                    <p class="section-subtitle">Soluciones creativas para empresas, emprendedores y particulares.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card reveal-up">
+                        <div class="service-icon-box"><i data-lucide="scissors"></i></div>
+                        <h3>Corte Láser Exacto</h3>
+                        <p>Cortes limpios sin bordes quemados. Ideal para piezas decorativas, letras corpóreas y maquetas en Acrílico y MDF.</p>
                     </div>
-
-                    <div class="bento-item glass-panel reveal-up" style="transition-delay: 100ms;">
-                        <div class="bento-content">
-                            <i data-lucide="qr-code" class="bento-icon"></i>
-                            <h3>Cartelería QR</h3>
-                            <p>Menús digitales, reseñas y accesos WiFi escaneables al instante.</p>
-                        </div>
+                    
+                    <div class="service-card reveal-up">
+                        <div class="service-icon-box"><i data-lucide="pen-tool"></i></div>
+                        <h3>Grabado Permanente</h3>
+                        <p>Personalizamos mates, termos, maderas y cuero. Deja tu marca imborrable con calidad fotográfica.</p>
                     </div>
-
-                    <div class="bento-item glass-panel reveal-up" style="transition-delay: 200ms;">
-                        <div class="bento-content">
-                            <i data-lucide="scissors" class="bento-icon"></i>
-                            <h3>Corte Láser</h3>
-                            <p>Trazos micrométricos sobre Acrílico y MDF para acabados impecables.</p>
-                        </div>
+                    
+                    <div class="service-card reveal-up">
+                        <div class="service-icon-box"><i data-lucide="smartphone-nfc"></i></div>
+                        <h3>Tarjetas NFC Inteligentes</h3>
+                        <p>El futuro del networking. Tarjetas de presentación premium donde compartes tus datos con solo acercar un celular.</p>
                     </div>
+                    
+                    <div class="service-card reveal-up">
+                        <div class="service-icon-box"><i data-lucide="qr-code"></i></div>
+                        <h3>Cartelería Funcional QR</h3>
+                        <p>Menús para restaurantes, displays para pagos y accesos WiFi, fabricados en acrílico de alta resistencia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="bento-item span-2 glass-panel reveal-up" style="transition-delay: 300ms;">
-                        <div class="bento-content">
-                            <i data-lucide="layers" class="bento-icon"></i>
-                            <h3>Grabado Alta Definición</h3>
-                            <p>Texturizado y marcado permanente en cuero, metal, madera y vidrio.</p>
-                        </div>
-                        <img src="./assets/mateytermograbado.png" alt="Grabado" class="bento-bg-img right-align">
+        <!-- Visual Showcase / Banner -->
+        <section class="banner-section">
+            <div class="container banner-container">
+                <div class="banner-content">
+                    <h2>Dale un salto de calidad a tu marca</h2>
+                    <p>Diseñamos piezas únicas que tus clientes amarán. ¿Tienes una idea en mente?</p>
+                    <a href="https://wa.me/5493816992434?text=Hola!%20Tengo%20una%20idea%20que%20quiero%20hacer%20realidad" 
+                       target="_blank" class="btn-white btn-large">
+                        Contanos tu proyecto
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Materials & Process -->
+        <section class="section" id="materiales">
+            <div class="container">
+                <div class="materials-grid">
+                    <div class="materials-text reveal-up">
+                        <h2 class="section-title">Cortamos y Grabamos sobre tu Material</h2>
+                        <p class="section-subtitle" style="margin-bottom: 2rem;">Traé tu propio material y nosotros lo cortamos o grabamos con precisión. Si preferís que busquemos el producto ideal para realizar el trabajo, ¡te ayudamos a conseguirlo!</p>
+                        
+                        <ul class="material-list">
+                            <li><i data-lucide="check"></i> <strong>Acrílico:</strong> Cortes brillantes y grabados nítidos.</li>
+                            <li><i data-lucide="check"></i> <strong>MDF y Maderas:</strong> Calidez y precisión para cartelería.</li>
+                            <li><i data-lucide="check"></i> <strong>Cuero y Eco-cuero:</strong> Grabados elegantes y sutiles.</li>
+                            <li><i data-lucide="check"></i> <strong>Vidrio y Metales:</strong> Grabados imborrables y sofisticados.</li>
+                        </ul>
+                    </div>
+                    <div class="materials-images reveal-up">
+                        <img src="./assets/mateytermograbado.png" alt="Mate grabado láser" class="img-rounded shadow-large">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="section contact-section" id="contacto">
+        <section class="section bg-light" id="contacto">
             <div class="container">
-                <div class="contact-card glass-panel reveal-up">
-                    <div class="contact-info">
-                        <h2>INICIA LA <span class="gradient-text">SECUENCIA</span></h2>
-                        <p>¿Listo para materializar tu idea? Contáctanos de forma segura y comenzamos la producción.</p>
+                <div class="contact-box reveal-up">
+                    <div class="contact-text">
+                        <h2>¿Listo para empezar?</h2>
+                        <p>Escribinos por WhatsApp y te enviamos un presupuesto rápido y sin compromiso. ¡Atención personalizada garantizada!</p>
                         
-                        <div class="social-grid">
-                            <a href="https://wa.me/5493816992434" target="_blank" class="social-pill btn-magnetic">
-                                <i data-lucide="message-circle"></i> WHATSAPP
+                        <div class="contact-methods">
+                            <a href="https://wa.me/5493816992434" target="_blank" class="contact-method-card whatsapp-card">
+                                <i data-lucide="message-circle" class="large-icon"></i>
+                                <div>
+                                    <span>WhatsApp Directo</span>
+                                    <strong>+54 381 699 2434</strong>
+                                </div>
                             </a>
-                            <a href="https://www.instagram.com/tlasertucuman/" target="_blank" class="social-pill btn-magnetic">
-                                <i data-lucide="instagram"></i> INSTAGRAM
+                            <a href="https://instagram.com/tlasertucuman" target="_blank" class="contact-method-card instagram-card">
+                                <i data-lucide="instagram" class="large-icon"></i>
+                                <div>
+                                    <span>Síguenos en Instagram</span>
+                                    <strong>@tlasertucuman</strong>
+                                </div>
                             </a>
                         </div>
                     </div>
                     
-                    <div class="terminal-ui">
-                        <div class="terminal-head">
-                            <div class="t-dots"><span></span><span></span><span></span></div>
-                            <div class="t-title">datos_transferencia.sh</div>
-                        </div>
-                        <div class="terminal-body">
-                            <div class="line"><span class="prompt">$</span> cat titular.txt</div>
-                            <div class="output">Esteban Alejandro Lopez</div>
-                            
-                            <div class="line"><span class="prompt">$</span> cat cuit.txt</div>
-                            <div class="output">20-31323182-9</div>
-                            
-                            <div class="line"><span class="prompt">$</span> get-alias</div>
-                            <div class="output highlight-alias">
-                                <span id="alias-text">elopezastro2026</span>
-                                <button id="copy-btn" class="copy-action"><i data-lucide="copy"></i></button>
+                    <div class="payment-box">
+                        <h3>Datos de Transferencia</h3>
+                        <p>Para confirmar tu pedido de forma segura:</p>
+                        
+                        <div class="bank-details">
+
+                            <div class="detail-row">
+                                <span class="lbl">CUIT:</span>
+                                <span class="val">20-31323182-9</span>
+                            </div>
+                            <div class="detail-row alias-row">
+                                <div>
+                                    <span class="lbl">Alias:</span>
+                                    <span class="val highlight-alias" id="alias-text">elopezastro2026</span>
+                                </div>
+                                <button id="copy-btn" class="btn-copy">
+                                    <i data-lucide="copy"></i> Copiar
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -212,30 +307,43 @@
         </section>
 
         <!-- Footer -->
-        <footer class="site-footer">
-            <div class="container footer-grid">
+        <footer class="footer">
+            <div class="container footer-content">
                 <div class="footer-brand">
-                    <div class="brand-icon">T</div>
-                    <p>T-LASER LAB © 2025</p>
+                    <div class="logo-mark">T</div>
+                    <div>
+                        <strong>T-LASER</strong>
+                        <p>Laboratorio Creativo de Corte y Grabado</p>
+                    </div>
                 </div>
-                <div class="footer-contact">
-                    <a href="tel:+543816992434">+54 381 699 2434</a>
-                    <span>Tucumán, Argentina</span>
+                <div class="footer-links">
+                    <a href="https://wa.me/5493816992434">WhatsApp</a>
+                    <a href="https://instagram.com/tlasertucuman">Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61575611156116">Facebook</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="container text-center">
+                    <p>© 2025 T-Laser. Todos los derechos reservados. Tucumán, Argentina.</p>
                 </div>
             </div>
         </footer>
 
-        <!-- Toast -->
-        <div id="toast" class="toast-msg">
-            <i data-lucide="check"></i> ALIAS COPIADO AL PORTAPAPELES
+        <!-- Toast Notification -->
+        <div id="toast" class="toast-notification">
+            <i data-lucide="check-circle"></i> ¡Alias copiado con éxito!
         </div>
+        
+        <!-- Floating WhatsApp -->
+        <a href="https://wa.me/5493816992434?text=Hola!%20Quería%20hacer%20una%20consulta" target="_blank" class="floating-wa">
+            <i data-lucide="message-circle"></i>
+        </a>
     </div>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
     <script type="module" src="./js/app.js"></script>
     <script>
         lucide.createIcons();

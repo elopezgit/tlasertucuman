@@ -1,49 +1,31 @@
-// app.js - Refactored for Radical Premium Redesign
+// app.js - Friendly & Sales-Oriented Redesign
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Boot Sequence Animation (Login / Welcome)
-    const bootSequence = document.getElementById('boot-sequence');
+    // 1. Splash Screen Animation
+    const splashScreen = document.getElementById('splash-screen');
     const mainApp = document.getElementById('main-app');
-    const enterBtn = document.getElementById('enter-btn');
     
-    // Prevent scrolling during boot
+    // Prevent scrolling during splash
     document.body.style.overflow = 'hidden';
     
-    // GSAP Timeline for Boot
-    const tlBoot = gsap.timeline();
-    
-    tlBoot.to('.boot-progress-bar', { width: '100%', duration: 2, ease: 'power2.inOut' })
-          .to('.boot-log span', { 
-              opacity: 1, y: 0, 
-              duration: 0.3, 
-              stagger: 0.4, 
-              ease: 'power2.out' 
-          }, "-=1.5")
-          .call(() => {
-              enterBtn.classList.add('visible');
-          });
-
-    // Enter Button Click Event
-    enterBtn.addEventListener('click', () => {
-        const tlEnter = gsap.timeline({
+    // Simulate a brief loading time for the splash screen
+    setTimeout(() => {
+        const tlSplash = gsap.timeline({
             onComplete: () => {
-                bootSequence.style.display = 'none';
+                splashScreen.style.display = 'none';
                 mainApp.classList.remove('hidden');
                 document.body.style.overflow = '';
                 initAppAnimations();
             }
         });
         
-        tlEnter.to(bootSequence, {
-            opacity: 0,
-            scale: 1.1,
-            duration: 0.8,
-            ease: 'power3.inOut'
-        });
-    });
+        tlSplash.to('.splash-loader', { opacity: 0, duration: 0.3 })
+                .to(splashScreen, { opacity: 0, duration: 0.8, ease: 'power2.inOut' });
+                
+    }, 1200); // 1.2 seconds friendly delay
 
-    // 2. Main App Logic (Initializes after Boot)
+    // 2. Main App Logic
     function initAppAnimations() {
         
         // --- Smooth Scrolling (Lenis) ---
@@ -59,46 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         requestAnimationFrame(raf);
 
-        // --- Custom Cursor ---
-        const cursor = document.getElementById('cursor');
-        const follower = document.getElementById('cursor-follower');
-        
-        if (window.matchMedia("(min-width: 1024px)").matches) {
-            document.addEventListener('mousemove', (e) => {
-                gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
-                gsap.to(follower, { x: e.clientX, y: e.clientY, duration: 0.5, ease: 'power3.out' });
-            });
-
-            const hoverTargets = document.querySelectorAll('a, button, .bento-item, .tech-card, .btn-magnetic');
-            hoverTargets.forEach(el => {
-                el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-                el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
-            });
-        } else {
-            cursor.style.display = 'none';
-            follower.style.display = 'none';
-        }
-
-        // --- Magnetic Buttons ---
-        const magneticElements = document.querySelectorAll('.btn-magnetic');
-        magneticElements.forEach(elem => {
-            elem.addEventListener('mousemove', (e) => {
-                const rect = elem.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                
-                gsap.to(elem, {
-                    x: x * 0.4,
-                    y: y * 0.4,
-                    duration: 0.5,
-                    ease: "power2.out"
-                });
-            });
-            elem.addEventListener('mouseleave', () => {
-                gsap.to(elem, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.3)" });
-            });
-        });
-
         // --- GSAP ScrollTrigger ---
         gsap.registerPlugin(ScrollTrigger);
         
@@ -107,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ScrollTrigger.addEventListener('refresh', () => lenis.update());
 
         // Nav hide on scroll
-        const nav = document.querySelector('.glass-nav');
+        const nav = document.querySelector('.main-nav');
         let lastScroll = 0;
         lenis.on('scroll', (e) => {
             const current = e.animatedScroll;
@@ -121,43 +63,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hero Animations
         const tlHero = gsap.timeline();
-        tlHero.fromTo('.app-container', { opacity: 0 }, { opacity: 1, duration: 0.5 })
-              .from('.hero-title .word', { 
-                  y: '100%', opacity: 0, duration: 1, stagger: 0.15, ease: 'power4.out' 
-              })
-              .from('.hero-sub', { opacity: 0, y: 20, duration: 0.8, ease: 'power2.out' }, "-=0.6")
-              .from('.hero-actions', { opacity: 0, y: 20, duration: 0.8 }, "-=0.6")
-              .from('.tech-card', { opacity: 0, scale: 0.8, rotationY: -15, duration: 1.5, ease: 'power3.out' }, "-=1");
-
-        // 3D Tilt effect on Tech Card
-        const techCard = document.querySelector('.tech-card-inner');
-        if (techCard && window.matchMedia("(min-width: 1024px)").matches) {
-            document.querySelector('.tech-card').addEventListener('mousemove', (e) => {
-                const rect = techCard.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                gsap.to(techCard, {
-                    rotationY: x * 0.05,
-                    rotationX: -y * 0.05,
-                    duration: 0.5,
-                    ease: "power2.out"
-                });
-            });
-            document.querySelector('.tech-card').addEventListener('mouseleave', () => {
-                gsap.to(techCard, { rotationY: 0, rotationX: 0, duration: 1, ease: "elastic.out(1, 0.3)" });
-            });
-        }
+        tlHero.fromTo('.app-container', { opacity: 0 }, { opacity: 1, duration: 0.4 })
+              .from('.badge-friendly', { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out' })
+              .from('.hero-title', { opacity: 0, y: 30, duration: 0.8, ease: 'power3.out' }, "-=0.4")
+              .from('.hero-subtitle', { opacity: 0, y: 20, duration: 0.8, ease: 'power2.out' }, "-=0.6")
+              .from('.hero-buttons', { opacity: 0, y: 20, duration: 0.8 }, "-=0.6")
+              .from('.trust-indicators', { opacity: 0, y: 20, duration: 0.8 }, "-=0.6")
+              .from('.image-showcase', { opacity: 0, scale: 0.95, duration: 1, ease: 'power3.out' }, "-=1")
+              .from('.floating-card', { opacity: 0, x: -30, duration: 0.8, ease: 'back.out(1.7)' }, "-=0.5");
 
         // Scroll Reveals for sections
         const revealElements = document.querySelectorAll('.reveal-up');
         revealElements.forEach(el => {
             gsap.fromTo(el, 
-                { opacity: 0, y: 50 },
+                { opacity: 0, y: 40 },
                 {
                     opacity: 1,
                     y: 0,
                     duration: 0.8,
-                    ease: "power3.out",
+                    ease: "power2.out",
                     scrollTrigger: {
                         trigger: el,
                         start: "top 85%",
