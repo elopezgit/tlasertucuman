@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Laser | Laboratorio Creativo</title>
+    <meta name="description"
+        content="Corte y grabado láser premium. Identidad digital inteligente, tarjetas NFC, cartelería moderna y precisión absoluta para profesionales y marcas en Tucumán.">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+  <script type="module" crossorigin src="/assets/index-DJfR5VsV.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-C19Ki2zT.css">
+</head>
+
+<body>
+    <!-- Advanced Custom Cursor -->
+    <div id="cursor" class="custom-cursor"></div>
+    <div id="cursor-follower" class="custom-cursor-follower"></div>
+
+    <!-- Login / Welcome Sequence -->
+    <div id="boot-sequence" class="boot-overlay">
+        <div class="boot-content">
+            <div class="boot-logo">
+                <svg viewBox="0 0 100 100" width="80" height="80">
+                    <path class="laser-path" d="M10 90 L50 10 L90 90 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <line class="laser-line" x1="50" y1="10" x2="50" y2="90" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </div>
+            <div class="boot-text-container">
+                <div class="boot-status">SISTEMA EN INICIO</div>
+                <div class="boot-progress">
+                    <div class="boot-progress-bar"></div>
+                </div>
+                <div class="boot-log">
+                    <span>> CALIBRANDO LÁSER...</span>
+                    <span>> SINCRONIZANDO NFC...</span>
+                    <span>> INICIALIZANDO INTERFAZ...</span>
+                    <span class="boot-ready">> SISTEMA LISTO</span>
+                </div>
+            </div>
+            <button id="enter-btn" class="enter-btn">INICIAR SESIÓN</button>
+        </div>
+    </div>
+
+    <!-- Main Content Wrapper (hidden initially) -->
+    <div id="main-app" class="app-container hidden">
+        <!-- Background Effects -->
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+        <div class="noise-overlay"></div>
+
+        <!-- Navigation -->
+        <nav class="glass-nav">
+            <div class="nav-container">
+                <a href="#inicio" class="brand">
+                    <div class="brand-icon">T</div>
+                    <div class="brand-text">
+                        <span class="brand-name">T-LASER</span>
+                        <span class="brand-tag">Lab</span>
+                    </div>
+                </a>
+                <div class="nav-links">
+                    <a href="#inicio" class="nav-link" data-text="INICIO">INICIO</a>
+                    <a href="#catalogo" class="nav-link" data-text="CATÁLOGO">CATÁLOGO</a>
+                    <a href="#contacto" class="nav-link" data-text="CONTACTO">CONTACTO</a>
+                </div>
+                <a href="https://wa.me/5493816992434?text=Hola%20T-Laser!%20Quiero%20iniciar%20un%20proyecto"
+                    target="_blank" class="btn-magnetic outline-btn">
+                    <span class="btn-text">INICIAR PROYECTO</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero-section" id="inicio">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="eyebrow-tag">
+                        <span class="pulse-dot"></span> OPERANDO EN TUCUMÁN
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="line"><span class="word">PRECISIÓN</span></span>
+                        <span class="line"><span class="word gradient-text">ABSOLUTA</span></span>
+                        <span class="line"><span class="word">EN CADA CORTE.</span></span>
+                    </h1>
+                    <p class="hero-sub">
+                        Fusionamos tecnología láser, integración NFC y diseño industrial para crear piezas premium que elevan tu marca a la próxima dimensión.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#catalogo" class="btn-solid btn-magnetic">EXPLORAR <i data-lucide="arrow-down-right"></i></a>
+                        <a href="https://wa.me/5493816992434?text=Hola%20T-Laser!%20Quiero%20iniciar%20un%20proyecto"
+                            target="_blank" class="btn-outline btn-magnetic">CONTACTAR <i data-lucide="message-square"></i></a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="tech-card">
+                        <div class="tech-card-inner">
+                            <div class="tech-card-front">
+                                <img src="/assets/tarjetaNFCvcard-B4cPowtL.png" alt="NFC Tech" class="hero-img">
+                                <div class="scanning-line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Features / Marquee -->
+        <div class="tech-ticker">
+            <div class="ticker-track">
+                <span>CORTE LÁSER</span><span class="dot">•</span>
+                <span>GRABADO CNC</span><span class="dot">•</span>
+                <span>TECNOLOGÍA NFC</span><span class="dot">•</span>
+                <span>IDENTIDAD DIGITAL</span><span class="dot">•</span>
+                <span>ACRÍLICO</span><span class="dot">•</span>
+                <span>MDF</span><span class="dot">•</span>
+                <span>METAL</span><span class="dot">•</span>
+                <span>CORTE LÁSER</span><span class="dot">•</span>
+                <span>GRABADO CNC</span><span class="dot">•</span>
+                <span>TECNOLOGÍA NFC</span><span class="dot">•</span>
+            </div>
+        </div>
+
+        <!-- Catalog Bento Box -->
+        <section class="section" id="catalogo">
+            <div class="container">
+                <div class="section-head">
+                    <h2 class="section-title">NUESTRO <br><span class="gradient-text">ARSENAL</span></h2>
+                    <p class="section-desc">Materiales nobles moldeados con luz coherente y tecnología de punta.</p>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="bento-item span-2 glass-panel reveal-up">
+                        <div class="bento-content">
+                            <i data-lucide="smartphone-nfc" class="bento-icon"></i>
+                            <h3>Tarjetas NFC Premium</h3>
+                            <p>Networking de próxima generación. Acerca la tarjeta al smartphone y transfiere tu identidad digital al instante.</p>
+                        </div>
+                        <img src="/assets/tarjetaNFCvcard-B4cPowtL.png" alt="NFC" class="bento-bg-img">
+                    </div>
+
+                    <div class="bento-item glass-panel reveal-up" style="transition-delay: 100ms;">
+                        <div class="bento-content">
+                            <i data-lucide="qr-code" class="bento-icon"></i>
+                            <h3>Cartelería QR</h3>
+                            <p>Menús digitales, reseñas y accesos WiFi escaneables al instante.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-item glass-panel reveal-up" style="transition-delay: 200ms;">
+                        <div class="bento-content">
+                            <i data-lucide="scissors" class="bento-icon"></i>
+                            <h3>Corte Láser</h3>
+                            <p>Trazos micrométricos sobre Acrílico y MDF para acabados impecables.</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-item span-2 glass-panel reveal-up" style="transition-delay: 300ms;">
+                        <div class="bento-content">
+                            <i data-lucide="layers" class="bento-icon"></i>
+                            <h3>Grabado Alta Definición</h3>
+                            <p>Texturizado y marcado permanente en cuero, metal, madera y vidrio.</p>
+                        </div>
+                        <img src="/assets/mateytermograbado-917jAWcn.png" alt="Grabado" class="bento-bg-img right-align">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section" id="contacto">
+            <div class="container">
+                <div class="contact-card glass-panel reveal-up">
+                    <div class="contact-info">
+                        <h2>INICIA LA <span class="gradient-text">SECUENCIA</span></h2>
+                        <p>¿Listo para materializar tu idea? Contáctanos de forma segura y comenzamos la producción.</p>
+                        
+                        <div class="social-grid">
+                            <a href="https://wa.me/5493816992434" target="_blank" class="social-pill btn-magnetic">
+                                <i data-lucide="message-circle"></i> WHATSAPP
+                            </a>
+                            <a href="https://www.instagram.com/tlasertucuman/" target="_blank" class="social-pill btn-magnetic">
+                                <i data-lucide="instagram"></i> INSTAGRAM
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="terminal-ui">
+                        <div class="terminal-head">
+                            <div class="t-dots"><span></span><span></span><span></span></div>
+                            <div class="t-title">datos_transferencia.sh</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="line"><span class="prompt">$</span> cat titular.txt</div>
+                            <div class="output">Esteban Alejandro Lopez</div>
+                            
+                            <div class="line"><span class="prompt">$</span> cat cuit.txt</div>
+                            <div class="output">20-31323182-9</div>
+                            
+                            <div class="line"><span class="prompt">$</span> get-alias</div>
+                            <div class="output highlight-alias">
+                                <span id="alias-text">elopezastro2026</span>
+                                <button id="copy-btn" class="copy-action"><i data-lucide="copy"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-icon">T</div>
+                    <p>T-LASER LAB © 2025</p>
+                </div>
+                <div class="footer-contact">
+                    <a href="tel:+543816992434">+54 381 699 2434</a>
+                    <span>Tucumán, Argentina</span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Toast -->
+        <div id="toast" class="toast-msg">
+            <i data-lucide="check"></i> ALIAS COPIADO AL PORTAPAPELES
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

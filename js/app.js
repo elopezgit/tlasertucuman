@@ -1,259 +1,199 @@
-// app.js
+// app.js - Refactored for Radical Premium Redesign
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 0. Loader Animation
-    const loader = document.getElementById('loader');
-    if (loader) {
-        document.body.style.overflow = 'hidden';
-        window.scrollTo(0, 0);
-        
-        const tlLoader = gsap.timeline({
-            onComplete: () => {
-                loader.style.display = 'none';
-                document.body.style.overflow = '';
-                // Trigger hero animations after loader
-                ScrollTrigger.refresh();
-                playHeroAnimations();
-            }
-        });
-
-        tlLoader.to('.laser-beam', { width: '100%', duration: 1.5, ease: 'power2.inOut', delay: 0.2 })
-                .to('.laser-beam-container', { opacity: 0, duration: 0.3 })
-                .fromTo('.loader-text .text-line', 
-                    { opacity: 0, y: 15 }, 
-                    { opacity: 1, y: 0, duration: 0.8, stagger: 0.4, ease: 'power2.out' }, 
-                    "-=0.1"
-                )
-                .to('.loader-text .text-line', { opacity: 0, duration: 0.5, delay: 1.2 })
-                .to(loader, { opacity: 0, duration: 0.8, ease: 'power2.inOut' });
-    } else {
-        playHeroAnimations();
-    }
-
-    // 1. Initialize Lenis (Smooth Scroll)
-    const lenis = new Lenis({
-        lerp: 0.18,
-        wheelMultiplier: 1.4,
-        smoothWheel: true,
-        smoothTouch: true,
-        touchMultiplier: 2
-    });
-
-    function raf(time) {
-        lenis.raf(time);
-        requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-
-    // Update ScrollTrigger on lenis scroll and refresh
-    lenis.on('scroll', ScrollTrigger.update);
-    ScrollTrigger.addEventListener('refresh', () => lenis.update());
-
-    // 2. Custom Cursor
-    const cursor = document.getElementById('cursor');
-    const cursorFollower = document.getElementById('cursor-follower');
     
-    // Only activate custom cursor on desktop
-    if (window.matchMedia("(min-width: 1024px)").matches) {
-        document.addEventListener('mousemove', (e) => {
-            gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0, ease: "power2.out" });
-            gsap.to(cursorFollower, { x: e.clientX, y: e.clientY, duration: 0.6, ease: "power3.out" });
+    // 1. Boot Sequence Animation (Login / Welcome)
+    const bootSequence = document.getElementById('boot-sequence');
+    const mainApp = document.getElementById('main-app');
+    const enterBtn = document.getElementById('enter-btn');
+    
+    // Prevent scrolling during boot
+    document.body.style.overflow = 'hidden';
+    
+    // GSAP Timeline for Boot
+    const tlBoot = gsap.timeline();
+    
+    tlBoot.to('.boot-progress-bar', { width: '100%', duration: 2, ease: 'power2.inOut' })
+          .to('.boot-log span', { 
+              opacity: 1, y: 0, 
+              duration: 0.3, 
+              stagger: 0.4, 
+              ease: 'power2.out' 
+          }, "-=1.5")
+          .call(() => {
+              enterBtn.classList.add('visible');
+          });
+
+    // Enter Button Click Event
+    enterBtn.addEventListener('click', () => {
+        const tlEnter = gsap.timeline({
+            onComplete: () => {
+                bootSequence.style.display = 'none';
+                mainApp.classList.remove('hidden');
+                document.body.style.overflow = '';
+                initAppAnimations();
+            }
         });
-
-        // Add hover effect to links and buttons
-        const interactables = document.querySelectorAll('a, button, .bento-item, .product-card');
-        interactables.forEach(el => {
-            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
-            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+        
+        tlEnter.to(bootSequence, {
+            opacity: 0,
+            scale: 1.1,
+            duration: 0.8,
+            ease: 'power3.inOut'
         });
-    } else {
-        cursor.style.display = 'none';
-        cursorFollower.style.display = 'none';
-    }
-
-    // 3. Navigation Scroll Effect
-    const nav = document.querySelector('.nav-glass');
-    let lastScrollY = window.scrollY;
-
-    lenis.on('scroll', (e) => {
-        const currentScrollY = e.animatedScroll;
-        
-        if (currentScrollY > 50) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
-        }
-
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-            nav.classList.add('hidden');
-        } else {
-            nav.classList.remove('hidden');
-        }
-        
-        lastScrollY = currentScrollY;
     });
 
-    // 4. GSAP Animations
-    gsap.registerPlugin(ScrollTrigger);
-
-    // Hero Text Animation
-    function playHeroAnimations() {
-        const heroTitleLines = document.querySelectorAll('.hero-title span');
+    // 2. Main App Logic (Initializes after Boot)
+    function initAppAnimations() {
         
-        gsap.from(heroTitleLines, {
-            y: 100,
-            opacity: 0,
-            duration: 1.2,
-            stagger: 0.2,
-            ease: "power4.out",
-            delay: 0.2
+        // --- Smooth Scrolling (Lenis) ---
+        const lenis = new Lenis({
+            lerp: 0.1,
+            wheelMultiplier: 1.2,
+            smoothWheel: true
         });
 
-        gsap.from('.hero-subtitle', {
-            y: 30,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out",
-            delay: 0.8
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // --- Custom Cursor ---
+        const cursor = document.getElementById('cursor');
+        const follower = document.getElementById('cursor-follower');
+        
+        if (window.matchMedia("(min-width: 1024px)").matches) {
+            document.addEventListener('mousemove', (e) => {
+                gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0 });
+                gsap.to(follower, { x: e.clientX, y: e.clientY, duration: 0.5, ease: 'power3.out' });
+            });
+
+            const hoverTargets = document.querySelectorAll('a, button, .bento-item, .tech-card, .btn-magnetic');
+            hoverTargets.forEach(el => {
+                el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+            });
+        } else {
+            cursor.style.display = 'none';
+            follower.style.display = 'none';
+        }
+
+        // --- Magnetic Buttons ---
+        const magneticElements = document.querySelectorAll('.btn-magnetic');
+        magneticElements.forEach(elem => {
+            elem.addEventListener('mousemove', (e) => {
+                const rect = elem.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                
+                gsap.to(elem, {
+                    x: x * 0.4,
+                    y: y * 0.4,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+            elem.addEventListener('mouseleave', () => {
+                gsap.to(elem, { x: 0, y: 0, duration: 0.8, ease: "elastic.out(1, 0.3)" });
+            });
         });
 
-        gsap.from('.hero-cta-group', {
-            y: 30,
-            opacity: 0,
-            duration: 1,
-            ease: "power3.out",
-            delay: 1
-        });
+        // --- GSAP ScrollTrigger ---
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Sync Lenis with ScrollTrigger
+        lenis.on('scroll', ScrollTrigger.update);
+        ScrollTrigger.addEventListener('refresh', () => lenis.update());
 
-        gsap.from('.badge-premium', {
-            scale: 0.8,
-            opacity: 0,
-            duration: 1,
-            ease: "elastic.out(1, 0.5)"
-        });
-
-        gsap.to('.hero-badge', {
-            y: -10,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-            duration: 4,
-            stagger: 0.18
-        });
-    }
-
-    gsap.fromTo('.hero-display-card',
-        { y: 30, opacity: 0.75 },
-        {
-            y: 0,
-            opacity: 1,
-            duration: 1.4,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: ".hero",
-                start: "top top",
-                end: "bottom top",
-                scrub: true
+        // Nav hide on scroll
+        const nav = document.querySelector('.glass-nav');
+        let lastScroll = 0;
+        lenis.on('scroll', (e) => {
+            const current = e.animatedScroll;
+            if (current > lastScroll && current > 100) {
+                nav.classList.add('nav-hidden');
+            } else {
+                nav.classList.remove('nav-hidden');
             }
+            lastScroll = current;
+        });
+
+        // Hero Animations
+        const tlHero = gsap.timeline();
+        tlHero.fromTo('.app-container', { opacity: 0 }, { opacity: 1, duration: 0.5 })
+              .from('.hero-title .word', { 
+                  y: '100%', opacity: 0, duration: 1, stagger: 0.15, ease: 'power4.out' 
+              })
+              .from('.hero-sub', { opacity: 0, y: 20, duration: 0.8, ease: 'power2.out' }, "-=0.6")
+              .from('.hero-actions', { opacity: 0, y: 20, duration: 0.8 }, "-=0.6")
+              .from('.tech-card', { opacity: 0, scale: 0.8, rotationY: -15, duration: 1.5, ease: 'power3.out' }, "-=1");
+
+        // 3D Tilt effect on Tech Card
+        const techCard = document.querySelector('.tech-card-inner');
+        if (techCard && window.matchMedia("(min-width: 1024px)").matches) {
+            document.querySelector('.tech-card').addEventListener('mousemove', (e) => {
+                const rect = techCard.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                gsap.to(techCard, {
+                    rotationY: x * 0.05,
+                    rotationX: -y * 0.05,
+                    duration: 0.5,
+                    ease: "power2.out"
+                });
+            });
+            document.querySelector('.tech-card').addEventListener('mouseleave', () => {
+                gsap.to(techCard, { rotationY: 0, rotationX: 0, duration: 1, ease: "elastic.out(1, 0.3)" });
+            });
         }
-    );
 
-    // Bento Grid Stagger Animation
-    gsap.fromTo('.bento-item', 
-        { y: 50, opacity: 0 },
-        {
-            scrollTrigger: {
-                trigger: '.services',
-                start: "top 85%",
-                once: true
-            },
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: "power3.out"
-        }
-    );
+        // Scroll Reveals for sections
+        const revealElements = document.querySelectorAll('.reveal-up');
+        revealElements.forEach(el => {
+            gsap.fromTo(el, 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
 
-    gsap.fromTo('.product-card',
-        { y: 40, opacity: 0 },
-        {
-            scrollTrigger: {
-                trigger: '.products-section',
-                start: "top 90%",
-                once: true
-            },
-            y: 0,
-            opacity: 1,
-            duration: 0.9,
-            stagger: 0.12,
-            ease: "power3.out"
-        }
-    );
+        // --- Copy to Clipboard ---
+        const copyBtn = document.getElementById('copy-btn');
+        const aliasText = document.getElementById('alias-text');
+        const toast = document.getElementById('toast');
 
-    // Payment Section Animation
-    gsap.fromTo('.payment-left > *', 
-        { x: -50, opacity: 0 },
-        {
-            scrollTrigger: {
-                trigger: '.payment-section',
-                start: "top 85%",
-                once: true
-            },
-            x: 0,
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.1,
-            ease: "power3.out"
-        }
-    );
-
-    gsap.fromTo('.terminal-card', 
-        { x: 50, opacity: 0 },
-        {
-            scrollTrigger: {
-                trigger: '.payment-section',
-                start: "top 85%",
-                once: true
-            },
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power4.out"
-        }
-    );
-
-    // 5. Copy to Clipboard Functionality
-    const copyBtn = document.getElementById('copy-alias');
-    const aliasText = document.getElementById('alias-text');
-    const toast = document.getElementById('toast');
-
-    if (copyBtn && aliasText) {
-        copyBtn.addEventListener('click', async () => {
-            try {
-                await navigator.clipboard.writeText(aliasText.textContent);
-                
-                // Show Toast
-                toast.classList.add('show');
-                
-                // Change Button Text Temporarily
-                const originalContent = copyBtn.innerHTML;
-                copyBtn.innerHTML = '<i data-lucide="check"></i> Copiado';
-                lucide.createIcons();
-                
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                    copyBtn.innerHTML = originalContent;
+        if (copyBtn && aliasText) {
+            copyBtn.addEventListener('click', async () => {
+                try {
+                    await navigator.clipboard.writeText(aliasText.textContent);
+                    toast.classList.add('show');
+                    
+                    const icon = copyBtn.querySelector('i');
+                    const oldIcon = icon.getAttribute('data-lucide');
+                    icon.setAttribute('data-lucide', 'check');
                     lucide.createIcons();
-                }, 3000);
-            } catch (err) {
-                console.error('Failed to copy text: ', err);
-            }
-        });
-    }
-
-    // Refresh ScrollTrigger after images load to fix positioning
-    window.addEventListener('load', () => {
+                    
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                        icon.setAttribute('data-lucide', oldIcon);
+                        lucide.createIcons();
+                    }, 3000);
+                } catch (err) {
+                    console.error('Failed to copy', err);
+                }
+            });
+        }
+        
         ScrollTrigger.refresh();
-    });
+    }
 });
